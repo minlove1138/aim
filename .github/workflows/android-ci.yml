@@ -17,3 +17,19 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
+          java-version: '17'  # ← 여기 추가됨
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug
+
+      - name: Show APK path (debug)
+        run: ls -R app/build/outputs
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: nabirangi-apk
+          path: app/build/outputs/apk/debug/*.apk
