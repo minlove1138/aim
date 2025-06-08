@@ -1,38 +1,36 @@
 name: Android CI
 
-on:
+ -d app/build/outputs ]; then echo "Build directory not foundon:
   push:
     branches:
       - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on!"; exit 1; fi
+:
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+: 실행
 
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+](#)
+권한 확인: 필요한 모든 파일을 JDK에 확인 용도: 작업/설정 java@v3 와
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+이러한 문제가 다음과 같습니다.
 
-      - name: Build with Gradle
-        run: ./gradlew assembleDebug
+코드
+  - name: Grant execute permission for grad addressed, push the changes to the repository to trigger the workflow again. If the issue persists, checklew
+    run: chmod +x ./gradlew
 
-      - name: Show APK path (debug)
-        run: ls -R app/build/outputs
+  - name: Build for specific Gradle or environment-related errors in with Gradle
+    run: ./gradlew assembleDebug the logs. --info --stacktrace
 
-      - name: Verify APK exists
-        run: test -f app/build/outputs/apk/debug/*.apk || exit 1
+  - name: Check Gradle build success
+    run: test -d app/build/outputs || exit 1
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: nabirangi-apk
-          path: app/build/outputs/apk/debug
+  - name: Show APK path (debug)
+    run: ls -R app/build/outputs
+
+  - name: Verify APK exists
+    run: test -f app/build/outputs/apk/debug/*.apk || exit 1
+
+  - name: Upload APK
