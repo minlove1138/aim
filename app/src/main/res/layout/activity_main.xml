@@ -7,6 +7,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="나비랑이 프로젝트 완성!"
+        android:text="나비랑이 프로젝트 빌드 성공!"
         android:textSize="24sp" />
 </LinearLayout>
